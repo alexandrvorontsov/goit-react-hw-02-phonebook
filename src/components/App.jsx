@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
-// import styles from './styles.module.css';
 
 export class App extends Component {
   state = {
@@ -54,11 +53,19 @@ export class App extends Component {
     const { filter } = this.state;
 
     return (
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <h1>Phonebook</h1>
         <ContactForm addContacts={this.addContacts} />
-        <h2>Contacts</h2>
+        <h2>Filter</h2>
         <Filter filter={filter} onChange={this.handleChange} />
+        <h2>Contacts</h2>
         <ContactList
           getVisibleContacts={this.handleFilter()}
           deleteContact={this.handleDelete}
